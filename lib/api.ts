@@ -1,22 +1,21 @@
 import { Post } from '@/types/types';
 import { companies, posts } from './seed';
 
-let _countries = [...countries];
-let _companies = [...companies];
+const _companies = [...companies];
 let _posts = [...posts];
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const jitter = () => 200 + Math.random() * 600;
 const maybeFail = () => Math.random() < 0.15;
 
-export async function fetchCountries() {
-  await delay(jitter());
-  return _countries;
-}
-
 export async function fetchCompanies() {
   await delay(jitter());
   return _companies;
+}
+
+export async function fetchCompanyById(id: string) {
+  await delay(jitter());
+  return _companies.find((company) => company.id === id) ?? null;
 }
 
 export async function fetchPosts() {

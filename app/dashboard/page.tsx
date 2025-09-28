@@ -1,22 +1,16 @@
-import { EmissionChart } from '@/components/chart/EmissionChart';
-import Company from '@/components/Info/Company';
-import Sum from '@/components/Info/Sum';
+import { fetchCompanies } from '@/lib/api';
+import type { Company } from '@/types/types';
+import DashboardClient from './DashboardClient';
 
-const page = () => {
-  return (
-    <div className="w-full p-10">
-      <h1 className="mb-6 text-2xl font-bold">Carbon Emissions Dashboard</h1>
-      <div className="flex h-[80%] w-full flex-row">
-        <div className="w-[30%] bg-red-50">
-          <Company />
-          <Sum />
-        </div>
-        <div className="m-4 h-full w-full p-4">
-          <EmissionChart />
-        </div>
-      </div>
-    </div>
-  );
-};
+export default async function DashboardPage() {
+  let companies: Company[] = [];
+  let error: string | null = null;
 
-export default page;
+  try {
+    companies = await fetchCompanies();
+  } catch (err) {
+    error = err instanceof Error ? err.message : '회사를 불러오지 못했습니다.';
+  }
+
+  return <DashboardClient companies={companies} error={error} />;
+}
