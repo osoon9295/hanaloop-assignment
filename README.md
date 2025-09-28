@@ -40,5 +40,3 @@
 - **Chart.js + react-chartjs-2 (`components/chart/EmissionChart.tsx`)**: 라인 차트를 쉽게 렌더링하면서도 툴팁, 범례 등 기본 인터랙션을 즉시 제공해 빠르게 시각화를 구현했습니다.
 - **lucide-react (`components/Info/CompanyOption.tsx`, `components/layout/Sidebar.tsx`)**: 가벼운 SVG 아이콘 세트를 사용해 내비게이션 및 회사 탐색 버튼의 직관성을 높였습니다.
 - **Tailwind CSS (`app/globals.css`)**: 빠르게 일관된 스타일을 적용하고 반응형 레이아웃을 구성하기 위해 Utility-First 접근을 사용했습니다.
-
-위 구성은 데모 목적에 맞춰 프론트엔드만으로도 사용자 흐름을 끝까지 체험할 수 있게 설계되었습니다.
